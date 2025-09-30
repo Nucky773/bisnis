@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Baso Goreng Keramat</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#fff8f0; color:#333;}
+    header { background:orange; color:white; padding:15px; text-align:center;}
+    nav a { margin:0 10px; color:white; text-decoration:none; font-weight:bold;}
+    section { padding:30px; max-width:1000px; margin:auto;}
+    h2 { color:#e65100;}
+    .card { background:white; padding:15px; border-radius:8px; margin-bottom:20px; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+    .produk-list { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:20px;}
+    .produk { text-align:center;}
+    .produk img { width:100%; height:160px; object-fit:cover; border-radius:8px;}
+    footer { background:orange; color:white; text-align:center; padding:15px; margin-top:20px;}
+    button { background:orange; color:white; border:none; padding:10px 15px; border-radius:5px; cursor:pointer;}
+    button:hover { background:darkorange;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Baso Goreng Keramat</h1>
+    <p>Renyah Gurihnya, Sakti Rasanya!</p>
+    <nav>
+      <a href="#brosur">Brosur</a>
+      <a href="#profile">Company Profile</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <section id="brosur">
+    <h2>Brosur Produk</h2>
+    <div class="produk-list">
+      <div class="card produk">
+        <img src="basreng.jpg" alt="Basreng Original">
+        <h4>Basreng Original</h4>
+        <p>Rp 10.000</p>
+      </div>
+      <div class="card produk">
+        <img src="pedas.jpg" alt="Basreng Pedas Keramat">
+        <h4>Basreng Pedas Keramat 🌶️</h4>
+        <p>Rp 12.000</p>
+      </div>
+      <div class="card produk">
+        <img src="keju.jpg" alt="Basreng Keju">
+        <h4>Basreng Keju 🧀</h4>
+        <p>Rp 13.000</p>
+      </div>
+      <div class="card produk">
+        <img src="baberque.jpg" alt="Basreng Barbeque">
+        <h4>Basreng Barbeque 🍖</h4>
+        <p>Rp 13.000</p>
+      </div>
+      <div class="card produk">
+        <img src="mix.jpg" alt="Mix Rasa">
+        <h4>Mix Rasa 🎉</h4>
+        <p>Rp 15.000</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="profile">
+    <h2>Company Profile</h2>
+    <div class="card">
+      <p><strong>Visi:</strong> Menjadi cemilan favorit masyarakat dengan rasa gurih, renyah, dan berkualitas tinggi.</p>
+      <p><strong>Misi:</strong></p>
+      <ul>
+        <li>Menyediakan baso goreng dengan harga terjangkau.</li>
+        <li>Berinovasi menghadirkan berbagai varian rasa.</li>
+        <li>Memberikan pelayanan terbaik kepada pelanggan.</li>
+        <li>Berwirausaha kreatif di lingkungan sekolah.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="kontak">
+    <h2>Kontak & Pemesanan</h2>
+    <div class="card">
+      <p>📍 Lokasi: Sekolah Bahtra</p>
+      <p>📸 Instagram: <a href="https://instagram.com/gerraldy_s.h" target="_blank">@gerraldy_s.h</a></p>
+      
+      <h3>Form Pesan</h3>
+      <form id="formPesan">
+        <input type="text" id="nama" placeholder="Nama" required><br><br>
+        <input type="number" id="jumlah" placeholder="Jumlah Porsi" required><br><br>
+        <button type="submit">Kirim Pesanan</button>
+      </form>
+      <p id="hasilPesan" style="margin-top:15px; font-weight:bold; color:green;"></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Baso Goreng Keramat | Semua Hak Dilindungi</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("formPesan");
+    const hasil = document.getElementById("hasilPesan");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      let nama = document.getElementById("nama").value;
+      let jumlah = document.getElementById("jumlah").value;
+      hasil.innerText = "Terima kasih " + nama + 
+        "! Pesanan " + jumlah + " porsi Baso Goreng sudah diterima.";
+      form.reset();
+    });
+  </script>
+</body>
+</html>
