@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baso Goreng Kang Nucky</title>
+  <style>
+    /* Reset & base */
+    * {
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+    body {
+      background: #fff;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background: #FF3C00; /* McD Red */
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      user-select: none;
+    }
+    .logo {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 2px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 35px;
+    }
+    nav ul li a {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+      display: inline-block;
+    }
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #FFC300; /* McD Yellow */
+      color: #FF3C00;
+      font-weight: 700;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: url('baso1.jpg') center/cover no-repeat;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 60px;
+      color: white;
+      position: relative;
+      user-select: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      max-width: 700px;
+      z-index: 1;
+    }
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 900;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      font-weight: 500;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 16px 48px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #FF3C00;
+      background-color: #FFC300;
+      border-radius: 40px;
+      box-shadow: 0 6px 15px rgba(255,195,0,0.6);
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(255,195,0,0.9);
+    }
+
+    /* Section Titles */
+    section {
+      padding: 80px 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #FF3C00;
+      letter-spacing: 1.5px;
+      user-select: none;
+    }
+
+    /* Menu Section */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+    .menu-card {
+      background: #fff5e6;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(255, 60, 0, 0.2);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .menu-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(255, 60, 0, 0.4);
+    }
+    .menu-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 5px solid #FF3C00;
+    }
+    .menu-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding: 15px 20px 8px;
+      color: #FF3C00;
+    }
+    .menu-card p {
+      padding: 0 20px 20px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: #6b3b1a;
+    }
+
+    /* Gallery Section */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(255, 60, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Testimonial Section */
+    .testimonial-wrapper {
+      max-width: 700px;
+      margin: 0 auto;
+      font-style: italic;
+      background: #fff5e6;
+      border-left: 8px solid #FF3C00;
+      padding: 25px 35px;
+      border-radius: 12px;
+      color: #6b3b1a;
+      box-shadow: 0 6px 15px rgba(255, 60, 0, 0.15);
+      user-select: none;
+    }
+    .testimonial-wrapper p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    .testimonial-wrapper strong {
+      display: block;
+      margin-top: 20px;
+      font-weight: 700;
+      text-align: right;
+      color: #FF3C00;
+    }
+
+    /* Contact Section */
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    input, textarea {
+      padding: 14px 18px;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 2px solid #FF3C00;
+      resize: vertical;
+      font-family: 'Arial', sans-serif;
+      transition: box-shadow 0.3s ease;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 8px #FFC300;
+    }
+    button.submit-btn {
+      padding: 16px 0;
+      background-color: #FF3C00;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(255, 60, 0, 0.6);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    button.submit-btn:hover {
+      background-color: #cc2a00;
+      box-shadow: 0 12px 30px rgba(204, 42, 0, 0.8);
+    }
+
+    /* Brosur Section */
+    #brosur {
+      padding: 80px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .brosur-wrapper {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+    .brosur-wrapper img {
+      width: 45%;   /* kira-kira setengah dengan jarak */
+      max-width: 400px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(255, 60, 0, 0.3);
+      user-select: none;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .brosur-wrapper img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #FF3C00;
+      color: white;
+      text-align: center;
+      padding: 35px 20px;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header {
+        padding: 20px 30px;
+      }
+      .hero {
+        height: 60vh;
+        padding: 0 30px;
+      }
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      section {
+        padding: 60px 30px;
+      }
+      nav ul {
+        gap: 20px;
+      }
+      #brosur {
+        padding: 60px 30px;
+        max-width: 100%;
+      }
+      .brosur-wrapper img {
+        width: 45%;
+        max-width: 350px;
+      }
+    }
+    @media (max-width: 600px) {
+      .brosur-wrapper img {
+        width: 100%;
+        max-width: 100%;
+      }
+      #brosur {
+        padding: 50px 20px;
+      }
+    }
+    @media (max-width: 480px) {
+      header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px 20px;
+      }
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Baso goreng sambal judes</div>
+    <nav>
+      <ul>
+        <li><a href="#" class="active">Beranda</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Galeri</a></li>
+        <li><a href="#testimonial">Testimonial</a></li>
+        <li><a href="#contact">Kontak</a></li>
+        <li><a href="#brosur">Brosur</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Nikmati Kelezatan Baso goreng sambal judes Kang Nucky</h1>
+      <p>Baso goreng renyah, bumbu gurih, dan cita rasa legendaris yang tak terlupakan.</p>
+      <a href="#menu" class="btn-primary">Lihat Menu</a>
+    </div>
+  </section>
+
+  <section id="menu">
+    <h2>Menu Unggulan</h2>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <img src="baso1.jpg" alt="Baso Goreng Original" />
+        <h3>Baso Goreng Original</h3>
+        <p>Baso goreng khas Kang Nucky, renyah di luar, lembut di dalam.</p>
+      </div>
+      <div class="menu-card">
+        <img src="baso2.jpg" alt="Baso Goreng Keju" />
+        <h3>Baso Goreng Pedas Gurih</h3>
+        <p>Tambahan pedas yang gurih, favorit semua usia.</p>
+      </div>
+      <div class="menu-card">
+        <img src="baso3.jpg" alt="Baso Goreng Pedas" />
+        <h3>Baso Goreng Pedas Nipis</h3>
+        <p>Varian pedas dengan bumbu khas, bagi yang suka tantangan rasa.</p>
+      </div>
+      <div class="menu-card">
+        <img src="baso4.jpg" alt="Baso Goreng Seafood" />
+        <h3>Baso Goreng Spedas Pisan</h3>
+        <p>Rasa laut yang segar berpadu dengan kriuk baso goreng.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="gallery">
+    <h2>Pemilik perusahaan</h2>
+    <div class="gallery-grid">
+    <img src="idcard.jpg" alt="Kartu Pengenal Baso Goreng" />
+    </div>
+  </section> 
+
+  <section id="testimonial">
+    <h2>Testimonial Pelanggan</h2>
+    <div class="testimonial-wrapper">
+      <p>"Baso goreng Mang Jajang selalu jadi favorit keluarga. Rasa autentik dan tekstur yang pas. Recomended banget!"</p>
+      <strong>- Siti Rahmawati</strong>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Kontak Kami</h2>
+    <form>
+      <input type="text" placeholder="Nama Lengkap" required />
+      <input type="email" placeholder="Email" required />
+      <textarea rows="5" placeholder="Pesan Anda" required></textarea>
+      <button type="submit" class="submit-btn">Kirim Pesan</button>
+    </form>
+  </section>
+
+ <section id="brosur">
+  <h2>Brosur dan Kartu Pengenal</h2>
+  <div class="brosur-wrapper">
+    <img src="bisnis.png" alt="Brosur Baso Goreng" />
+  </div>
+</section>
+
+  <footer>
+    © 2025 Baso Goreng Mang Jajang. All rights reserved.
+  </footer>
+
+</body>
+</html>
